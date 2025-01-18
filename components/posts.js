@@ -29,7 +29,10 @@ function Post({ post, action }) {
             </p>
           </div>
           <div>
-            <form action={action.bind(null, post.id)}>
+            <form
+              action={action.bind(null, post.id)}
+              className="fill-[#e32195]"
+            >
               {console.log(post.isLiked)}
               <LikeButton className={post.isLiked ? "fill-[#e32195]" : ""} />
             </form>
