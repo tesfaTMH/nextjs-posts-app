@@ -4,20 +4,19 @@ import Image from "next/image";
 
 function Post({ post }) {
   return (
-    <article className="flex gap-1 p-1 border-[1px] border-[#443f41] bg-[#131011] shadow-[0 0 6px rgpa(0,0,0,0.5)]">
-      <div className="post-image">
-        <img src={post.image} alt={post.title} />
+    <article className="flex gap-1 p-1 border-[1px] border-[#443f41] bg-[#131011] shadow-[0 0 6px rgpa(0,0,0,0.5)] m-3">
+      <div className="">
         <Image
           src={post.image}
           alt={post.title}
-          width={8}
-          height={6}
-          className="object-cover"
+          width={100}
+          height={60}
+          className="object-cover w-56 h-48 rounded-3xl"
         />
       </div>
-      <div className="flex flex-1">
+      <div className="flex flex-1 flex-col justify-between">
         <header className="flex items-start justify-between mb-1.5">
-          <div>
+          <div className="flex flex-col items-start justify-start">
             <h2 className="m-0">{post.title}</h2>
             <p className="text-base text-[#b1a9ac]">
               Shared by {post.userFirstName} on{" "}
