@@ -8,13 +8,14 @@ import { useOptimistic } from "react";
 function Post({ post, action }) {
   return (
     <article className="flex gap-1 p-1 border-[1px] border-[#443f41] bg-[#131011] shadow-[0 0 6px rgpa(0,0,0,0.5)] m-3">
-      <div className="">
+      <div className="relative w-48 h-36">
         <Image
           src={post.image}
           alt={post.title}
-          width={100}
-          height={60}
-          className="object-cover w-56 h-48 rounded-3xl"
+          //width={100}
+          //height={60}
+          fill
+          className="object-cover rounded-3xl"
         />
       </div>
       <div className="flex flex-1 flex-col justify-between">

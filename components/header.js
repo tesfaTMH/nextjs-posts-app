@@ -12,6 +12,7 @@ export default function Header() {
           width={80}
           height={80}
           className="p-2 rounded-full bg-[#363234] hover:bg-white transition-all ease-in-out"
+          priority
         />
       </Link>
       <nav>
