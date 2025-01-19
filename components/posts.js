@@ -5,16 +5,29 @@ import Image from "next/image";
 import { togglePostLikesStatus } from "@/actions/postActions";
 import { useOptimistic } from "react";
 
+const imageLoader = (config) => {
+  // to manuplate the image split the url into two parts and add the modifying string
+  const urlStart = config.src.split("upload/")[0];
+  const urlEnd = config.src.split("upload/")[1];
+  const imgTransformString = `w_200,h_150,q_${config.quality}`;
+  //return config.src;
+  return `${urlStart}upload/${imgTransformString}/${urlEnd}`;
+};
+
 function Post({ post, action }) {
   return (
-    <article className="flex gap-1 p-1 border-[1px] border-[#443f41] bg-[#131011] shadow-[0 0 6px rgpa(0,0,0,0.5)] m-3">
+    <article className="flex flex-col md:flex-row gap-1 p-1 border-[1px] border-[#443f41] bg-[#131011] shadow-[0 0 6px rgpa(0,0,0,0.5)] m-3">
       <div className="relative w-48 h-36">
         <Image
+          loader={imageLoader}
+          quality={50}
           src={post.image}
           alt={post.title}
           //width={100}
           //height={60}
-          fill
+          //fill
+          width={200}
+          height={150}
           className="object-cover rounded-3xl"
         />
       </div>
